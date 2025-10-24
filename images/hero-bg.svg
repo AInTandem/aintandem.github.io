@@ -1,0 +1,51 @@
+<svg width="100%" height="100%" viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="blur1" x="0" y="0">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="15" />
+    </filter>
+  </defs>
+  
+  <!-- Background gradient -->
+  <rect width="100%" height="100%" fill="#a7f3d0"/>
+  
+  <!-- Sun with glow -->
+  <circle cx="950" cy="150" r="80" fill="#fef3c7" opacity="0.8"/>
+  <circle cx="950" cy="150" r="120" fill="#fef3c7" opacity="0.4" filter="url(#blur1)"/>
+  
+  <!-- Sky elements -->
+  <circle cx="800" cy="100" r="40" fill="#dbeafe" opacity="0.6"/>
+  <circle cx="850" cy="80" r="60" fill="#dbeafe" opacity="0.4"/>
+  
+  <!-- Distant hills -->
+  <path d="M-100,600 Q200,500 500,600 T1200,550 L1200,800 L-100,800 Z" fill="#bae6fd" opacity="0.3"/>
+  
+  <!-- Grass field -->
+  <path d="M-100,600 Q200,550 500,600 T1200,550 L1200,800 L-100,800 Z" fill="#bbf7d0" opacity="0.7"/>
+  
+  <!-- Flowers -->
+  <circle cx="300" cy="650" r="5" fill="#fda4af"/>
+  <circle cx="320" cy="670" r="4" fill="#c7d2fe"/>
+  <circle cx="280" cy="680" r="4" fill="#c7d2fe"/>
+  <circle cx="350" cy="660" r="5" fill="#fda4af"/>
+  <circle cx="370" cy="690" r="4" fill="#c7d2fe"/>
+  <circle cx="400" cy="650" r="5" fill="#fda4af"/>
+  <circle cx="420" cy="680" r="4" fill="#c7d2fe"/>
+  
+  <!-- Bicycle path -->
+  <path d="M200,650 Q500,600 800,650" stroke="#94a3b8" stroke-width="10" fill="none" stroke-dasharray="20,15"/>
+  
+  <!-- Bicycle and rider (simplified) -->
+  <circle cx="200" cy="620" r="15" fill="#cbd5e1"/>  <!-- Rider -->
+  <circle cx="200" cy="660" r="12" fill="#64748b"/>  <!-- Wheel -->
+  <circle cx="230" cy="660" r="12" fill="#64748b"/>  <!-- Wheel -->
+  <line x1="200" y1="620" x2="230" y2="650" stroke="#94a3b8" stroke-width="4"/>  <!-- Frame -->
+  
+  <!-- AI passenger -->
+  <rect x="195" y="605" width="10" height="15" fill="#e2e8f0" rx="2"/>  <!-- AI body -->
+  <circle cx="200" cy="600" r="6" fill="#93c5fd"/>  <!-- AI head -->
+  
+  <!-- Light rays -->
+  <line x1="950" y1="150" x2="850" y2="600" stroke="#fef3c7" stroke-width="1" opacity="0.2"/>
+  <line x1="950" y1="150" x2="600" y2="650" stroke="#fef3c7" stroke-width="1" opacity="0.2"/>
+  <line x1="950" y1="150" x2="400" y2="680" stroke="#fef3c7" stroke-width="1" opacity="0.2"/>
+</svg>
