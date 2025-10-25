@@ -265,11 +265,11 @@ p {
     margin-bottom: 1.5rem;
 }
 
-/* Mobile-specific styles (merged from responsive design and mobile-specific sections) */
+/* Mobile-specific styles */
 @media (max-width: 768px) {
     .section {
         padding: 60px 0;
-        min-height: 100vh; /* Extend height to show whole background image */
+        min-height: 100vh;
         background-attachment: fixed;
     }
     
@@ -300,7 +300,7 @@ p {
         font-size: 1rem;
     }
     
-    /* Update background images for mobile */
+    /* Mobile background images */
     .hero-section {
         background: url('../images/hero-section-p.jpeg'), linear-gradient(135deg, #a7f3d0 0%, #c7d2fe 100%);
         background-size: cover;
@@ -362,19 +362,6 @@ p {
     .component-card {
         padding: 20px;
     }
-    
-    /* Additional styling for mobile */
-    .concept-steps {
-        flex-direction: column;
-    }
-    
-    .step {
-        min-width: 100%;
-    }
-    
-    .components-grid {
-        grid-template-columns: 1fr;
-    }
 }
 
 /* Organic connecting lines for concept section */
@@ -413,4 +400,57 @@ p {
 @keyframes lightPulse {
     0% { opacity: 0.8; }
     100% { opacity: 1; }
+}
+
+/* AOS Animation Enhancements */
+[data-aos="fade-up"] {
+    transform: translateY(100px);
+    opacity: 0;
+    transition: transform 0.8s ease, opacity 0.8s ease;
+}
+
+[data-aos="fade-up"].aos-animate {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+[data-aos="zoom-in"] {
+    transform: scale(0.8);
+    opacity: 0;
+    transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+[data-aos="zoom-in"].aos-animate {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* Organic motion curves for smoother animations */
+[data-aos] {
+    transition-timing-function: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Animation delay variation for staggered effects */
+[data-aos-delay="200"] {
+    transition-delay: 0.2s;
+}
+
+[data-aos-delay="300"] {
+    transition-delay: 0.3s;
+}
+
+[data-aos-delay="400"] {
+    transition-delay: 0.4s;
+}
+
+[data-aos-delay="500"] {
+    transition-delay: 0.5s;
+}
+
+[data-aos-delay="600"] {
+    transition-delay: 0.6s;
+}
+
+[data-aos-delay="700"] {
+    transition-delay: 0.7s;
 }
