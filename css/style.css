@@ -23,9 +23,10 @@ body {
 .section {
     padding: 100px 0;
     position: relative;
-    min-height: 100vh;
+    min-height: 100vh; /* Extend height to show whole background image */
     display: flex;
     align-items: center;
+    overflow: hidden;
 }
 
 /* Typography styles with increased letter spacing */
@@ -75,7 +76,7 @@ p {
 
 /* Hero Section - Vision Statement */
 .hero-section {
-    background: url('../images/hero-section-1.jpeg'), linear-gradient(135deg, #a7f3d0 0%, #c7d2fe 100%);
+    background: url('../images/hero-section.jpeg'), linear-gradient(135deg, #a7f3d0 0%, #c7d2fe 100%);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -127,7 +128,7 @@ p {
 
 /* Concept Section - Core Concept */
 .concept-section {
-    background: url('../images/hero-section-2.jpeg'), linear-gradient(135deg, #a7f3d0 0%, #c7d2fe 100%);
+    background: url('../images/concept-section.jpeg'), linear-gradient(135deg, #a7f3d0 0%, #c7d2fe 100%);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -198,7 +199,7 @@ p {
 
 /* Components Section - Key Components */
 .components-section {
-    background: url('../images/hero-section-3.jpeg'), linear-gradient(135deg, #a7f3d0 0%, #c7d2fe 100%);
+    background: url('../images/components-section.jpeg'), linear-gradient(135deg, #a7f3d0 0%, #c7d2fe 100%);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -243,7 +244,7 @@ p {
 
 /* Vision Section - Future Section */
 .vision-section {
-    background: url('../images/hero-section-4.jpeg'), linear-gradient(135deg, #a7f3d0 0%, #c7d2fe 100%);
+    background: url('../images/vision-section.jpeg'), linear-gradient(135deg, #a7f3d0 0%, #c7d2fe 100%);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -264,20 +265,105 @@ p {
     margin-bottom: 1.5rem;
 }
 
-/* Responsive design */
+/* Mobile-specific styles (merged from responsive design and mobile-specific sections) */
 @media (max-width: 768px) {
     .section {
         padding: 60px 0;
+        min-height: 100vh; /* Extend height to show whole background image */
+        background-attachment: fixed;
+    }
+    
+    .container {
+        padding: 0 15px;
     }
     
     h1 {
         font-size: 2.5rem;
+        line-height: 1.3;
     }
     
     h2 {
         font-size: 2rem;
+        line-height: 1.4;
     }
     
+    h3 {
+        font-size: 1.3rem;
+    }
+    
+    p {
+        font-size: 1rem;
+    }
+    
+    .cta-button {
+        padding: 12px 24px;
+        font-size: 1rem;
+    }
+    
+    /* Update background images for mobile */
+    .hero-section {
+        background: url('../images/hero-section-p.jpeg'), linear-gradient(135deg, #a7f3d0 0%, #c7d2fe 100%);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+    
+    .concept-section {
+        background: url('../images/concept-section-p.jpeg'), linear-gradient(135deg, #a7f3d0 0%, #c7d2fe 100%);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+    
+    .components-section {
+        background: url('../images/components-section-p.jpeg'), linear-gradient(135deg, #a7f3d0 0%, #c7d2fe 100%);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+    
+    .vision-section {
+        background: url('../images/vision-section-p.jpeg'), linear-gradient(135deg, #a7f3d0 0%, #c7d2fe 100%);
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+    
+    /* Content container adjustments for mobile */
+    .hero-content,
+    .concept-content,
+    .components-content,
+    .vision-content {
+        padding: 1.5rem;
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    /* Concept section steps - stack vertically on mobile */
+    .concept-steps {
+        flex-direction: column;
+    }
+    
+    .step {
+        min-width: 100%;
+        padding: 20px;
+    }
+    
+    /* Components grid - single column on mobile */
+    .components-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .component-card {
+        padding: 20px;
+    }
+    
+    /* Additional styling for mobile */
     .concept-steps {
         flex-direction: column;
     }
