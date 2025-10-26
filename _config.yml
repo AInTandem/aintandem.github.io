@@ -1,0 +1,50 @@
+title: AInTandem - Technical Documentation
+email: contact@aintandem.example.com
+description: Technical documentation for AInTandem projects
+baseurl: ""
+url: "https://aintandem.github.io"
+github_username: misterlex223
+
+# Build settings
+markdown: kramdown
+theme: just-the-docs
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+# Just the Docs configuration
+color_scheme: light
+search_enabled: true
+heading_anchors: true
+
+# Navigation
+nav_external_links:
+  - title: AInTandem Home
+    url: /
+    hide_icon: false
+
+# Custom settings
+collections:
+  docs:
+    output: true
+    permalink: /:collection/:path/
+
+defaults:
+  - scope:
+      path: ""
+      type: "docs"
+    values:
+      layout: "default"
+
+# Just the Docs navigation
+aux_links:
+  "AInTandem Home":
+    - "/"
+
+# Enable table of contents
+# toc:
+#   enabled: true
+#   heading: "On this page"
+
+sass:
+  style: compressed

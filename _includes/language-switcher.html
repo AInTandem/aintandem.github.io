@@ -1,0 +1,12 @@
+<!-- Language Switcher -->
+<div class="language-switcher">
+  {% if page.lang == 'en' %}
+    <a href="{{ page.url | replace: '/en/', '/zh/' }}" class="language-link">繁體中文</a>
+  {% elsif page.lang == 'zh' %}
+    <a href="{{ page.url | replace: '/zh/', '/en/' }}" class="language-link">English</a>
+  {% else %}
+    <!-- Default case, may need to handle based on site defaults -->
+    <a href="{{ page.url | replace: '/kai/', '/kai/en/' }}" class="language-link">English</a>
+    <a href="{{ page.url | replace: '/kai/', '/kai/zh/' }}" class="language-link">繁體中文</a>
+  {% endif %}
+</div>

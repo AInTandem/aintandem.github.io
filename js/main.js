@@ -1,4 +1,4 @@
-// AinTandem Website JavaScript
+// AInTandem Website JavaScript
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize AOS with custom settings for organic tech aesthetic
     AOS.init({
@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
     
-    console.log('AinTandem website loaded with AOS animations');
+    console.log('AInTandem website loaded with AOS animations');
     
     // Smooth scrolling for navigation
     const links = document.querySelectorAll('a[href^="#"]');

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: 'en' }}">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ page.title }} - {{ site.title }}</title>
+    <link rel="stylesheet" href="{{ '/assets/css/just-the-docs-default.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/css/just-the-docs-head-nav.css' | relative_url }}" id="jtd-head-nav-stylesheet">
+    <link rel="stylesheet" href="{{ '/assets/css/language-switcher.css' | relative_url }}">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <style id="jtd-nav-activation">
+      /* Navigation activation styles */
+      {% if page.lang == 'en' %}
+      .site-nav > ul.nav-list:first-child > li:not(:nth-child(2)) > a,
+      .site-nav > ul.nav-list:first-child > li > ul > li a {
+        background-image: none;
+      }
+      .site-nav > ul.nav-list:not(:first-child) a,
+      .site-nav li.external a {
+        background-image: none;
+      }
+      .site-nav > ul.nav-list:first-child > li:nth-child(2) > a {
+        font-weight: 600;
+        text-decoration: none;
+      }
+      .site-nav > ul.nav-list:first-child > li:nth-child(2) > button svg {
+        transform: rotate(-90deg);
+      }
+      .site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(2) > ul.nav-list {
+        display: block;
+      }
+      {% elsif page.lang == 'zh' %}
+      .site-nav > ul.nav-list:first-child > li:not(:nth-child(3)) > a,
+      .site-nav > ul.nav-list:first-child > li > ul > li a {
+        background-image: none;
+      }
+      .site-nav > ul.nav-list:not(:first-child) a,
+      .site-nav li.external a {
+        background-image: none;
+      }
+      .site-nav > ul.nav-list:first-child > li:nth-child(3) > a {
+        font-weight: 600;
+        text-decoration: none;
+      }
+      .site-nav > ul.nav-list:first-child > li:nth-child(3) > button svg {
+        transform: rotate(-90deg);
+      }
+      .site-nav > ul.nav-list:first-child > li.nav-list-item:nth-child(3) > ul.nav-list {
+        display: block;
+      }
+      {% endif %}
+    </style>
+    <script src="{{ '/assets/js/vendor/lunr.min.js' | relative_url }}"></script>
+    <script src="{{ '/assets/js/just-the-docs.js' | relative_url }}"></script>
+  </head>
+  <body>
+    <div class="language-switcher-container">
+      {% if page.lang == 'en' %}
+        <a href="{{ page.url | replace: '/en/', '/zh/' }}" class="language-link">繁體中文</a>
+      {% elsif page.lang == 'zh' %}
+        <a href="{{ page.url | replace: '/zh/', '/en/' }}" class="language-link">English</a>
+      {% else %}
+        <!-- Default case -->
+        <a href="{{ page.url | replace: '/kai/', '/kai/en/' }}" class="language-link">English</a>
+        <a href="{{ page.url | replace: '/kai/', '/kai/zh/' }}" class="language-link">繁體中文</a>
+      {% endif %}
+    </div>
+    
+    <div class="side-bar">
+      <div class="site-header" role="banner">
+        <a href="{{ '/' | relative_url }}" class="site-title lh-tight">{{ site.title }}</a>
+        <button id="menu-button" class="site-button btn-reset" aria-label="Toggle menu" aria-pressed="false">
+          <svg viewBox="0 0 24 24" class="icon" aria-hidden="true"><use xlink:href="#svg-menu"></use></svg>
+        </button>
+      </div>
+      
+      <nav aria-label="Main" id="site-nav" class="site-nav">
+        <ul class="nav-list">
+          <li class="nav-list-item">
+            <a href="{{ '/' | relative_url }}" class="nav-list-link">AInTandem Home</a>
+          </li>
+          
+          <!-- English documentation navigation -->
+          {% if page.lang == 'en' %}
+          <li class="nav-list-item">
+            <button class="nav-list-expander btn-reset" aria-label="toggle items in Kai Project - Documentation category" aria-pressed="false">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+            </button>
+            <a href="{{ '/kai/en/' | relative_url }}" class="nav-list-link">Kai Project - Documentation</a>
+            <ul class="nav-list">
+              <li class="nav-list-item">
+                <a href="{{ '/kai/en/' | relative_url }}" class="nav-list-link{% if page.url == '/kai/en/' or page.url == '/kai/en/index.html' %} active{% endif %}">Overview</a>
+              </li>
+              <li class="nav-list-item">
+                <button class="nav-list-expander btn-reset" aria-label="toggle items in Technical Docs category" aria-pressed="false">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+                </button>
+                <a href="{{ '/kai/en/docs/' | relative_url }}" class="nav-list-link{% if page.url contains '/kai/en/docs/' %} active{% endif %}">Technical Docs</a>
+                <ul class="nav-list">
+                  <li class="nav-list-item">
+                    <a href="{{ '/kai/en/docs/architecture.html' | relative_url }}" class="nav-list-link{% if page.url == '/kai/en/docs/architecture.html' %} active{% endif %}">Technical Architecture</a>
+                  </li>
+                  <li class="nav-list-item">
+                    <a href="{{ '/kai/en/docs/getting-started.html' | relative_url }}" class="nav-list-link{% if page.url == '/kai/en/docs/getting-started.html' %} active{% endif %}">Getting Started Guide</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-list-item">
+                <a href="{{ '/kai/en/api/reference.html' | relative_url }}" class="nav-list-link{% if page.url == '/kai/en/api/reference.html' %} active{% endif %}">API Reference</a>
+              </li>
+            </ul>
+          </li>
+          {% endif %}
+          
+          <!-- Chinese documentation navigation -->
+          {% if page.lang == 'zh' %}
+          <li class="nav-list-item">
+            <button class="nav-list-expander btn-reset" aria-label="toggle items in Kai 專案 - 技術文件 category" aria-pressed="false">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+            </button>
+            <a href="{{ '/kai/zh/' | relative_url }}" class="nav-list-link">Kai 專案 - 技術文件</a>
+            <ul class="nav-list">
+              <li class="nav-list-item">
+                <a href="{{ '/kai/zh/' | relative_url }}" class="nav-list-link{% if page.url == '/kai/zh/' or page.url == '/kai/zh/index.html' %} active{% endif %}">概述</a>
+              </li>
+              <li class="nav-list-item">
+                <button class="nav-list-expander btn-reset" aria-label="toggle items in 技術文件 category" aria-pressed="false">
+                  <svg viewBox="0 0 24 24" aria-hidden="true"><use xlink:href="#svg-arrow-right"></use></svg>
+                </button>
+                <a href="{{ '/kai/zh/docs/' | relative_url }}" class="nav-list-link{% if page.url contains '/kai/zh/docs/' %} active{% endif %}">技術文件</a>
+                <ul class="nav-list">
+                  <li class="nav-list-item">
+                    <a href="{{ '/kai/zh/docs/architecture.html' | relative_url }}" class="nav-list-link{% if page.url == '/kai/zh/docs/architecture.html' %} active{% endif %}">技術架構</a>
+                  </li>
+                  <li class="nav-list-item">
+                    <a href="{{ '/kai/zh/docs/getting-started.html' | relative_url }}" class="nav-list-link{% if page.url == '/kai/zh/docs/getting-started.html' %} active{% endif %}">入門指南</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-list-item">
+                <a href="{{ '/kai/zh/api/reference.html' | relative_url }}" class="nav-list-link{% if page.url == '/kai/zh/api/reference.html' %} active{% endif %}">API 參考</a>
+              </li>
+            </ul>
+          </li>
+          {% endif %}
+        </ul>
+        
+        <ul class="nav-list">
+          <li class="nav-list-item external">
+            <a href="http://0.0.0.0:4000/" class="nav-list-link external">
+              AInTandem Home
+              <svg viewBox="0 0 24 24" aria-labelledby="svg-external-link-title"><use xlink:href="#svg-external-link"></use></svg>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      
+      <footer class="site-footer">
+        This site uses <a href="https://github.com/just-the-docs/just-the-docs">Just the Docs</a>, a documentation theme for Jekyll.
+      </footer>
+    </div>
+    
+    <div class="main" id="top">
+      <div id="main-header" class="main-header">
+        <div class="search" role="search">
+          <div class="search-input-wrap">
+            <input type="text" id="search-input" class="search-input" tabindex="0" placeholder="Search {{ site.title }}" aria-label="Search {{ site.title }}" autocomplete="off">
+            <label for="search-input" class="search-label"><svg viewBox="0 0 24 24" class="search-icon"><use xlink:href="#svg-search"></use></svg></label>
+          </div>
+          <div id="search-results" class="search-results"></div>
+        </div>
+        
+        <nav aria-label="Auxiliary" class="aux-nav">
+          <ul class="aux-nav-list">
+            <li class="aux-nav-list-item">
+              <a href="{{ '/' | relative_url }}" class="site-button">
+                AInTandem Home
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+      
+      <div class="main-content-wrap">
+        <div id="main-content" class="main-content">
+          <main>
+            {{ content }}
+          </main>
+        </div>
+      </div>
+      
+      <div class="search-overlay"></div>
+    </div>
+  </body>
+</html>

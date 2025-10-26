@@ -1,0 +1,52 @@
+/* Compact Language Switcher for Just the Docs */
+/* Overrides default Just the Docs styles to make the language switcher more compact */
+
+.language-switcher-container {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 1000;
+}
+
+.language-link {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  background-color: #4f46e5;
+  color: white;
+  text-decoration: none;
+  border-radius: 0.125rem;
+  font-weight: 600;
+  font-size: 0.875rem;
+  transition: all 0.2s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+.language-link:hover {
+  background-color: #4338ca;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Mobile responsiveness for compact language switcher */
+@media (max-width: 768px) {
+  .language-switcher-container {
+    top: 0.25rem;
+    right: 0.25rem;
+  }
+  
+  .language-link {
+    padding: 0.125rem 0.25rem;
+    font-size: 0.75rem;
+  }
+}
+
+/* Adjust main content padding for compact header */
+.main-content {
+  padding-top: 3rem;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    padding-top: 2.5rem;
+  }
+}

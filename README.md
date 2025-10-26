@@ -1,6 +1,6 @@
-# AinTandem - AI 與人協作的新型團隊生態
+# AInTandem - AI 與人協作的新型團隊生態
 
-This is the official website for AinTandem, showcasing a new paradigm for AI collaboration where multiple AI agents work together as a team rather than as individual tools.
+This is the official website for AInTandem, showcasing a new paradigm for AI collaboration where multiple AI agents work together as a team rather than as individual tools.
 
 ## Features
 
@@ -43,8 +43,35 @@ This site is configured for GitHub Pages deployment. To publish:
 
 ## Local Development
 
+### Method 1: Static Server (Simple)
+
 To run locally, simply open `index.html` in a browser, or serve with any HTTP server:
 
 ```bash
 python3 -m http.server 8000
 ```
+
+### Method 2: Jekyll Server (Recommended for Documentation)
+
+For a full development experience with live reloading and Jekyll features:
+
+1. Navigate to the project directory:
+   ```bash
+   cd aintandem.github.io
+   ```
+
+2. Use one of the provided scripts:
+   ```bash
+   # Full setup and start (installs dependencies if needed)
+   ./scripts/start-preview.sh
+   
+   # Quick start (assumes dependencies are already installed)
+   ./scripts/quick-preview.sh
+   ```
+
+3. Access the site at:
+   - Main site: http://localhost:4000
+   - Kai English documentation: http://localhost:4000/kai/en/
+   - Kai Chinese documentation: http://localhost:4000/kai/zh/
+
+See `scripts/README.md` for more detailed information about these scripts.
